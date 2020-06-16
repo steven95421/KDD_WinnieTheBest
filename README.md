@@ -95,6 +95,26 @@
         + `python3 Visual-BERT_pair_box_tfidf-neg_focal_all_predict-all_cls.py {gpu_id} {n_workers}`
     + Run `./main.sh`
     + Note that with `n_workers = 24` it takes around 5 hours to predict.
+### Follow up questions from issues:
+> 1. Can you give a simple example of the negative sample sampling method?
+
+Let the query pool be `['a cute dog', 'a cute bear', 'korean style of cat', 'japanese little dog', 'whatever it is']` and `topk = 4`. Then for query `'a cute dog'` we have an array of similar word counts: `[3, 2, 0, 1, 0]`. After that, we sorted the querys by this array and filter out the target query. So the negative querys of the target query would be `['a cute bear', 'korean style of cat', 'japanese little dog']`. Next moving on to sampling image features. Let the target query have `n` image features, then we should sample `n*k` negatives, where `k` is the negative sampling rate. We simply sampled `n` querys from its negative querys `k` times, and for each querys we uniformly sampled one image feature. Here we can see that `topk` should at least be the maximum number of numbers of features of querys plus one.
+
+> 2. In this competition, 69 models have been trained based on Mcan and Visual Bert methods. Do these 69 models have any differences, such as parameters, training samples, etc?
+
+Since we had a large negative sampling pool with large `topk` parameter, the only differences were random seeds for all random parts, which should be diverse enough.
+
+> 3. Before post-processing, a single model based on Mcan or visual Bert is used to evalute the NDCG@5 on valid.tsv. How much can be achieved?
+
+For VisualBERT, it was around 0.69. As for MCAN, it was around 0.71.
+
+> 4. In the post-processing stage, the valid set is used to train the model. How to evaluate the model?
+
+K-fold cross-validation on `valid.tsv`, and simple blending is applied afterward.
+
+> 5. After post-processing, how many Score can a single model achieve in testA?
+
+There was no enough time for us to test on testA. But it was around 0.87-0.88 on `valid.tsv`.
 
 ### Reference
 ***
