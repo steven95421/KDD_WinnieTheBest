@@ -120,3 +120,11 @@ There was no enough time for us to test on testA. But it was around 0.87-0.88 on
 ***
 [1] Yu, Zhou, et al. "Deep modular co-attention networks for visual question answering." *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition.* 2019.
 [2] Li, Liunian Harold, et al. "Visualbert: A simple and performant baseline for vision and language." *arXiv preprint arXiv:1908.03557* (2019).
+
+### Acknowledgement
++ We appreciate the advice and supports from Prof. Shou-De Lin under grant number 109-2634-F-002-033 from Taiwan Ministry of Science and Technology (MOST) ("Advanced Technologies for Resource-constrained Deep Learning") , Microsoft Research Asia Collaborative Project Funding (2019), and computation resources from National Center for High-Performance Computing.
+
++ HOSTKEY is now offering GPU dedicated servers and VPS with NVIDIA GTX 1080/1080Ti and RTX 2080Ti that are capable of processing any task at hand. We offer GPU servers with pre-installed PyTorch, Keras, Theano and TensorFlow libraries for dataflow, machine learning and neural networks.
+
+You can train your neural network using HOSTKEY GPU solution 10x cheaper than on AWS or Google Cloud Platform but with the same speed!
+Research: https://medium.com/@hostkey/data-science-experts-from-catalyst-have-compared-the-time-and-monetary-investment-in-training-the-cab231bc67d0
